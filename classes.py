@@ -66,6 +66,7 @@ class rectangle:
         for rec in rectangle.activeObject:
             distance = rec.pos-self.pos
             distancemag = distance.magnitude()
+            #since there is no collision detection, when the objects gets really close the gravitational force becomes really high, hence the if statement
             if distancemag >5:
                 gravMagnitude = rectangle.G*rec.mass*self.mass/distancemag**2
                 self.force(distance.unitVector()*gravMagnitude)
